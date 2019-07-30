@@ -241,7 +241,6 @@ export class UpdtaskComponent implements OnInit {
         } else {
           this.task.onModel = 'Task';
         }
-        console.log(this.task);
         this.updtaskService.updatetask(this.taskId, this.task).subscribe((res: any) => {
           if (res) {
             this.successAlertMessage = 'Updated a Task successfully!';
@@ -277,5 +276,9 @@ export class UpdtaskComponent implements OnInit {
     this.displayUser = '';
     this.displayProject = '';
     this.displayParent = '';
+  }
+
+  back(): void {
+    this.router.navigateByUrl('/addtask');
   }
 }

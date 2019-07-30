@@ -163,4 +163,10 @@ export class ViewtaskComponent implements OnInit {
         this.errorAlertMessage = err.message;
     });
   }
+
+  resetValue(): void {
+    this.allTasks = this.originalTaskList;
+    this.displayProject =  '';
+    this.task.projectid = '';
+  }
 }

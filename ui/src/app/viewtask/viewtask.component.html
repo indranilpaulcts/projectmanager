@@ -28,14 +28,18 @@
                 <div class="col-sm-4">
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label-sm" for="inputTaskName">Project</label>
-                        <div class="col-sm-8" style="padding: 0px">
-                            <input type="text" class="form-control form-control-sm" id="inputTaskName" placeholder="Project Name" [(ngModel)]="displayProject" [ngModelOptions]="{standalone: true}" (ngModelChange) = 'searchByTaskName(task.taskname)'>
+                        <div class="col-sm-6" style="padding: 0px">
+                            <input type="text" class="form-control form-control-sm" id="inputTaskName" placeholder="Project Name" [(ngModel)]="displayProject" [ngModelOptions]="{standalone: true}">
                         </div>
-                        <div class="col-sm-1" style="padding: 0px">
-                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalProject" (click)="loadProjectName()"><i class="fa fa-search"></i></button>
-                        </div>                   
-                    </div>                    
+                        <div class="col-sm-1" style="padding: 0px; margin-right: 3px">
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalProject" data-placement="top" title="Search All Projects" (click)="loadProjectName()"><i class="fa fa-search"></i></button>
+                        </div>
+                        <div class="col-sm-1" style="padding: 0px; margin-left: 3px">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="tooltip" data-placement="top" title="Reset" (click)="resetValue()"><i class="fa fa-refresh"></i></button>
+                        </div>                
+                    </div>                  
                 </div>
+                
                 <div class="col-sm-8">
                     <label class="col-sm-2 col-form-label-sm" for="">Sort By:-</label> 
                     <button type="button" class="btn btn-sm btn-light" (click)="sortByStartDt()"><i class="fa fa-sort" aria-hidden="true"></i>&nbsp;Start Date</button>&nbsp;
