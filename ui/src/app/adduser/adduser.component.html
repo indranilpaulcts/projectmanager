@@ -1,0 +1,104 @@
+<div class="container">
+    <!-- Warning Alert -->
+    <div *ngIf="ifAnyWarning" style="margin-top: 10px" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Warning!</strong> {{ warningAlertMessage }}
+        <button type="button" class="close" (click)="ifAnyWarning = false">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- Error Alert -->
+    <div *ngIf="ifAnyError" style="margin-top: 10px" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> {{ errorAlertMessage }}
+        <button type="button" class="close" (click)="ifAnyError = false">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- Success Alert -->
+    <div *ngIf="ifPostedSuccessfully" style="margin-top: 10px" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> An user has been {{ userActionString }} successfully!
+        <button type="button" class="close" (click)="ifPostedSuccessfully = false">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 20px">
+
+        <div class="col-md-8">
+            <h5>Add New User</h5>
+            <hr>
+            <form [formGroup] = "addUserForm" novalidate>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputFirstName">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputFirstName" [(ngModel)]="user.fname" placeholder="First Name" formControlName="fname">
+                    </div>           
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputLastName">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputLastName" [(ngModel)]="user.lname" placeholder="Last Name" formControlName="lname">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputEmpId">Employee Id</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control form-control-sm" id="inputEmpId" [(ngModel)]="user.empid" placeholder="Employee Id" formControlName="empid">
+                    </div>      
+                    <div class="col-sm-5">
+                        <button type="button" class="btn btn-sm btn-success" (click)="addUser()"><i class="fa fa-plus"></i>&nbsp;Add User</button>&nbsp;
+                        <button type="button" class="btn btn-sm btn-secondary" (click)="resetValue()"><i class="fa fa-refresh"></i>&nbsp;Reset User</button>
+                    </div>            
+                </div>               
+            </form> 
+            <hr>   
+        </div> 
+
+        <!-- View User Section -->
+        <div class="col-md-8">
+            <input class="col-sm-12" type="text" class="form-control form-control-sm" id="globalSearch" placeholder="Search User..." [(ngModel)]="searchUserInput" (ngModelChange)="searchUser()">
+            <div class="col-sm-12" style="margin-top: 8px">
+                <label class="col-sm-2 col-form-label-sm" for="">Sort By:-</label> 
+                <button type="button" class="btn btn-sm btn-light" (click)="sortByFName()"><i class="fa fa-sort" aria-hidden="true"></i>&nbsp;First Name</button>&nbsp;
+                <button type="button" class="btn btn-sm btn-light" (click)="sortByLName()"><i class="fa fa-sort" aria-hidden="true"></i>&nbsp;Last Name</button>&nbsp;
+                <button type="button" class="btn btn-sm btn-light" (click)="sortByIdName()"><i class="fa fa-sort" aria-hidden="true"></i>&nbsp;Employee Id</button>&nbsp;
+            </div>
+
+            <div class="col-sm-12 row" style="margin-top: 5px"  *ngFor="let u of allUsers">
+                <div class="col-sm-7">
+                    <div class="card">
+                        <div class="card-body" style="padding: 8px; font-size: small">
+                            <p class="card-text">
+                                First Name: <b>{{ u.fname }}</b> &nbsp;&nbsp;&nbsp; Last Name: <b>{{ u.lname }}</b><br>
+                                Id: <b>{{ u.empid }}</b>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <button type="button" class="btn btn-sm btn-success" (click)="updateUser(u._id)"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Update</button>&nbsp;
+                    <button type="button" class="btn btn-sm btn-danger" (click)="tobedeletedId = u._id" data-toggle="modal" data-target=".deleteUserConfirmationModal"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete</button>
+                </div>
+            </div>        
+        </div>
+
+        <!-- Delete User Confirmation Modal -->
+        <div class="modal deleteUserConfirmationModal" tabindex="-1" data-backdrop="static" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete User</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you really want to delete?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-primary" (click)="deleteUser()" data-dismiss="modal">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

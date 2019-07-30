@@ -1,0 +1,28 @@
+<!-- The app component -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="">
+      <img src='../assets/ProjectManager.png' width="30" height="30" class="d-inline-block align-top" alt="">
+      Project Manager
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/addproject']" data-toggle="tooltip" data-placement="top" title="Add a New Project">Add Project</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/addtask']" data-toggle="tooltip" data-placement="top" title="Add a New Task">Add Task</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/adduser']" data-toggle="tooltip" data-placement="top" title="Add a New User">Add User</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/viewtask']" data-toggle="tooltip" data-placement="top" title="View & Edit Existing Tasks">View Task</a>
+      </li>
+  </ul>
+  </div>  
+</nav>
+
+<router-outlet></router-outlet>

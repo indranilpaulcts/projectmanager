@@ -1,0 +1,192 @@
+<div class="container">
+    <!-- Warning Alert -->
+    <div *ngIf="ifAnyWarning" style="margin-top: 10px" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Warning!</strong> {{ warningAlertMessage }}
+        <button type="button" class="close" (click)="ifAnyWarning = false">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- Error Alert -->
+    <div *ngIf="ifAnyError" style="margin-top: 10px" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> {{ errorAlertMessage }}
+        <button type="button" class="close" (click)="ifAnyError = false">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- Success Alert -->
+    <div *ngIf="ifPostedSuccessfully" style="margin-top: 10px" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> {{ successAlertMessage }}
+        <button type="button" class="close" (click)="ifPostedSuccessfully = false">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <hr>
+        <p class="mb-0"><a href="" [routerLink]="['/viewtask']">Click here</a> to view/edit all other tasks.</p>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 20px">
+
+        <div class="col-md-8">
+            <h5>Add New Task</h5>
+            <hr>
+            <form [formGroup] = "addTaskForm">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputProjectName">Project</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control form-control-sm" id="inputProjectName" [(ngModel)] = "displayProject" [ngModelOptions] = "{standalone: true}" placeholder="Project Name" readonly>
+                    </div>  
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-sm btn-primary" (click)="loadProjectName()" data-toggle="modal" data-target="#modalProject"><i class="fa fa-search"></i>&nbsp;Search</button>
+                    </div>                    
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputTaskName">Task</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputTaskName" [(ngModel)] = "task.taskname" formControlName="taskname" placeholder="Task Name">                   
+                        <label class="col-sm-10 col-form-label-sm">
+                            &nbsp;&nbsp;<input type="checkbox" class="form-check-input" id="inputChkParentTaskName" (change)="needParentCheckValue($event)">Parent Task
+                        </label> 
+                    </div>                          
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputPriority">Priority <b>({{task.priority}})</b></label>
+                    <div class="col-sm-1">
+                        <span>0</span> 
+                    </div>
+                    <div class="col-sm-8" style="padding: 0px;">
+                        <input type="range" min=0 max=30 step=1 class="form-control form-control-sm" id="inputPriority" [disabled]="isParentTask" [(ngModel)] = "task.priority" [ngModelOptions] = "{standalone: true}">
+                    </div> 
+                    <div class="col-sm-1">
+                        <span>30</span> 
+                    </div>                   
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputParentTaskName">Parent Task</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control form-control-sm" id="inputParentTaskName" [(ngModel)] = "displayParent" [ngModelOptions] = "{standalone: true}" placeholder="Parent Task Name" readonly>
+                    </div>  
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-sm btn-primary" [disabled]="isParentTask" (click)="loadParentName()" data-toggle="modal" data-target="#modalParent"><i class="fa fa-search"></i>&nbsp;Search</button>
+                    </div>   
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputStartDate">Start Date</label>
+                    <div class="col-sm-4">
+                        <input type="date" class="form-control form-control-sm" id="inputStartDate" [(ngModel)] = "task.startdt" formControlName="startdt">
+                    </div>
+                    <label class="col-sm-2 col-form-label-sm" for="inputEndDate">End Date</label>
+                    <div class="col-sm-4">
+                        <input type="date" class="form-control form-control-sm" id="inputEndDate" [(ngModel)] = "task.enddt" formControlName="enddt">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputUserName">User</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control form-control-sm" id="inputUserName" [(ngModel)] = "displayUser" [ngModelOptions] = "{standalone: true}" placeholder="User Name" readonly>
+                    </div>  
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-sm btn-primary" [disabled]="isParentTask" (click)="loadUserName()" data-toggle="modal" data-target="#modalUser"><i class="fa fa-search"></i>&nbsp;Search</button>
+                    </div>                    
+                </div>
+                <div class="form-group row">                    
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10" style="text-align: left">
+                        <button type="button" class="btn btn-sm btn-success" (click)="addTask()"><i class="fa fa-plus"></i>&nbsp;Add Task</button>&nbsp;
+                        <button type="button" class="btn btn-sm btn-secondary" (click)="resetValue()"><i class="fa fa-refresh"></i>&nbsp;Reset Task</button>
+                    </div>
+                </div>                
+            </form>
+        </div>       
+    </div>
+
+    <!-- Modal Select Project -->
+    <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="modalProjectDisplay" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Select Project</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="searchProjectInput" [ngModelOptions]="{standalone: true}" (ngModelChange)="searchProject()">
+                    </div>
+                    <ul class="list-group list-group-flush" *ngFor="let prj of allProjects">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{prj.project}}
+                            <button type="button" class="btn btn-sm btn-primary" (click)="selectProject(prj._id, prj.project)" data-dismiss="modal"><i class="fa fa-check"></i></button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Select Parent -->
+    <div class="modal fade" id="modalParent" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="modalParentDisplay" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Select Parent Task</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="searchParentInput" [ngModelOptions]="{standalone: true}" (ngModelChange)="searchParent()">
+                    </div>
+                    <ul class="list-group list-group-flush" *ngFor="let tsk of allTasks">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{tsk.taskname}}
+                            <button type="button" class="btn btn-sm btn-primary" (click)="selectParent(tsk._id, tsk.taskname, tsk.onModel)" data-dismiss="modal"><i class="fa fa-check"></i></button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Select User -->
+    <div class="modal fade" id="modalUser" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="modalUserDisplay" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Select User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="searchUserInput" [ngModelOptions]="{standalone: true}" (ngModelChange)="searchUser()">
+                    </div>
+                    <ul class="list-group list-group-flush" *ngFor="let usr of allUsers">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{usr.empid}} - {{usr.fname}} {{usr.lname}}
+                            <button type="button" class="btn btn-sm btn-primary" (click)="selectUser(usr._id, usr.fname + ' ' + usr.lname)" data-dismiss="modal"><i class="fa fa-check"></i></button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

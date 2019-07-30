@@ -1,0 +1,54 @@
+<div class="container">
+    <!-- Warning Alert -->
+    <div *ngIf="ifAnyWarning" style="margin-top: 10px" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Warning!</strong> {{ warningAlertMessage }}
+        <button type="button" class="close" (click)="ifAnyWarning = false">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- Error Alert -->
+    <div *ngIf="ifAnyError" style="margin-top: 10px" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> {{ errorAlertMessage }}
+        <button type="button" class="close" (click)="ifAnyError = false">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- Success Alert -->
+    <div *ngIf="ifPostedSuccessfully" style="margin-top: 10px" class="alert alert-success" role="alert">
+        <h5 class="alert-heading">Success!</h5>
+        <p>Successfully updated user's information!</p>
+        <hr>
+        <p class="mb-0"><a href="" [routerLink]="['/adduser']">Click here</a> to add/modify/delete users.</p>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 20px">
+
+        <div class="col-md-8">
+            <h5>Update Existing User</h5>
+            <hr>
+            <form [formGroup] = "updUserForm" novalidate>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputFirstName">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputFirstName" [(ngModel)]="user.fname" placeholder="First Name" formControlName="fname">
+                    </div>           
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputLastName">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputLastName" [(ngModel)]="user.lname" placeholder="Last Name" formControlName="lname">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputEmpId">Employee Id</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control form-control-sm" id="inputEmpId" [(ngModel)]="user.empid" placeholder="Employee Id" formControlName="empid">
+                    </div>
+                    <div class="col-sm-5">
+                        <button type="button" class="btn btn-sm btn-success" (click)="saveUser()" [disabled]="updatecomplete"><i class="fa fa-floppy-o"></i>&nbsp;Save User</button>&nbsp;
+                        <button type="button" class="btn btn-sm btn-secondary" (click)="back()"><i class="fa fa-undo"></i>&nbsp;Back</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

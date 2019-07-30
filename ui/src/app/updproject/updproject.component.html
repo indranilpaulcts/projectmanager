@@ -1,0 +1,104 @@
+<div class="container">
+    <!-- Warning Alert -->
+    <div *ngIf="ifAnyWarning" style="margin-top: 10px" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Warning!</strong> {{ warningAlertMessage }}
+        <button type="button" class="close" (click)="ifAnyWarning = false">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- Error Alert -->
+    <div *ngIf="ifAnyError" style="margin-top: 10px" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> {{ errorAlertMessage }}
+        <button type="button" class="close" (click)="ifAnyError = false">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- Success Alert -->
+    <div *ngIf="ifPostedSuccessfully" style="margin-top: 10px" class="alert alert-success" style="margin-top: 15px" role="alert">
+        <h5 class="alert-heading">Success!</h5>
+        <p>Successfully updated project's information!</p>
+        <hr>
+        <p class="mb-0"><a href="" [routerLink]="['/addproject']">Click here</a> to add/modify/suspend projects.</p>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 20px">
+
+        <div class="col-md-8">
+            <h5>Update Existing Project</h5>
+            <hr>
+            <form [formGroup] = "updProjectForm" novalidate>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputProjectName">Project</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-sm" id="inputProjectName" [(ngModel)] = "project.project" formControlName="project" placeholder="Project Name" ><br>
+                        <div class="col-sm-12 row">
+                            <label class="col-sm-4 col-form-label-sm" style="width: auto">
+                                &nbsp;&nbsp;<input type="checkbox" class="form-check-input" id="inputCheckDate" (change)="needStartEndDateCheckValue($event)" checked>Set Start & End Dt
+                            </label>
+                            <input type="date" [disabled]="!needStartEndDate" class="col-sm-4 form-control form-control-sm" id="inputStartDate" [(ngModel)] = "project.startdt" [ngModelOptions] = "{standalone: true}">
+                            <input type="date" [disabled]="!needStartEndDate" class="col-sm-4 form-control form-control-sm" id="inputEndDate" [(ngModel)] = "project.enddt" [ngModelOptions] = "{standalone: true}">
+                        </div>
+                    </div>           
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputPriority">Priority <b>({{project.priority}})</b></label>
+                    <div class="col-sm-1">
+                        <span>0</span> 
+                    </div>
+                    <div class="col-sm-8" style="padding: 0px;">
+                        <input type="range" min=0 max=30 step=1 class="form-control form-control-sm" id="inputPriority" [(ngModel)] = "project.priority" [ngModelOptions] = "{standalone: true}">
+                    </div> 
+                    <div class="col-sm-1">
+                        <span>30</span> 
+                    </div>                   
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label-sm" for="inputManagerName">Manager</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control form-control-sm" id="inputManagerName" [(ngModel)] = "displayManager" formControlName="manager" placeholder="Manager Name" readonly>
+                    </div>  
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-sm btn-primary" (click)="loadManagerName()" data-toggle="modal" data-target="#modalManager"><i class="fa fa-search"></i>&nbsp;Search</button>
+                    </div>                    
+                </div>
+                <div class="form-group row">                    
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10" style="text-align: left">
+                        <button type="button" class="btn btn-sm btn-success" (click)="saveProject()" [disabled]="updatecomplete"><i class="fa fa-floppy-o"></i>&nbsp;Save Project</button>&nbsp;
+                        <button type="button" class="btn btn-sm btn-secondary" (click)="back()"><i class="fa fa-undo"></i>&nbsp;Back</button>
+                    </div>
+                </div>                
+            </form>   
+        </div> 
+    </div>
+
+    <!-- Modal Select Manager -->
+    <div class="modal fade" id="modalManager" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="modalManagerDisplay" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Select Manager</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="searchManagerInput" [ngModelOptions]="{standalone: true}" (ngModelChange)="searchManager()">
+                </div>
+                <ul class="list-group list-group-flush" *ngFor="let mgr of allUsers">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{mgr.empid}} - {{mgr.fname}} {{mgr.lname}}
+                        <button type="button" class="btn btn-sm btn-primary" (click)="selectManager(mgr._id, mgr.fname + ' ' + mgr.lname)" data-dismiss="modal"><i class="fa fa-check"></i></button>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
