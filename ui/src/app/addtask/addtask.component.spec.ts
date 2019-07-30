@@ -1,13 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddtaskComponent } from './addtask.component';
 import { AddtaskService } from './addtask.service';
+import { FormBuilder } from '@angular/forms';
+
 
 describe('AddtaskComponent', () => {
   let component: AddtaskComponent;
   let addtaskService: AddtaskService;
+  let fb: FormBuilder;
 
   beforeEach(() => {
-    component = new AddtaskComponent(addtaskService);
+    component = new AddtaskComponent(addtaskService, fb);
   });
 
   it('should create', () => {
@@ -16,7 +19,7 @@ describe('AddtaskComponent', () => {
 
   it('Should return False if all input fields are NOT populated', () => {
     component.task.taskname = '';
-    const objData = component.validationOfForm();
+    const objData = component.validateForm();
     expect(objData).toBeFalsy();
   });
 

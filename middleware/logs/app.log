@@ -1001,3 +1001,82 @@
 {"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
 {"message":"200: All users have been fetched - /get-user/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
 {"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All project have been fetched - /get-project/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All project have been fetched - /get-project/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All project have been fetched - /get-project/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All users have been fetched - /get-user/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All project have been fetched - /get-project/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All parents have been fetched - /get-parent/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All parents have been fetched - /get-parent/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All users have been fetched - /get-user/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"201: New Task has been added - /add-task/ - POST - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All users have been fetched - /get-user/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All project have been fetched - /get-project/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: UserID 5d3d7158227debb238525898 has been fetched - /get-userbyproj/5d3d7158227debb238525898 - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: TaskID 5d3d7158227debb238525898 has been fetched - /get-task/5d3d7158227debb238525898 - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All parents have been fetched - /get-parent/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All users have been fetched - /get-user/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: UserID 5d382410f5437ad8d5b0a890 has been fetched - /get-user/5d382410f5437ad8d5b0a890 - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All project have been fetched - /get-project/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All users have been fetched - /get-user/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: ProjectID 5d385adb40d35e297e5e21ae has been fetched - /get-project/5d385adb40d35e297e5e21ae - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: Updated TaskCount - /update-count/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All project have been fetched - /get-project/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All users have been fetched - /get-user/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: UserID 5d382410f5437ad8d5b0a890 has been fetched - /get-user/5d382410f5437ad8d5b0a890 - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: UserID 5d40a11fd0f001870c840efa has been fetched - /get-userbyproj/5d40a11fd0f001870c840efa - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: TaskID 5d40a11fd0f001870c840efa has been fetched - /get-task/5d40a11fd0f001870c840efa - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: UserID 5d40a11fd0f001870c840efa has been fetched - /get-userbyproj/5d40a11fd0f001870c840efa - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: TaskID 5d40a11fd0f001870c840efa has been fetched - /get-task/5d40a11fd0f001870c840efa - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: TaskID 5d40a11fd0f001870c840efa has been fetched - /get-task/5d40a11fd0f001870c840efa - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: UserID 5d40a11fd0f001870c840efa has been fetched - /get-userbyproj/5d40a11fd0f001870c840efa - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: UserID 5d40a11fd0f001870c840efa has been fetched - /get-userbyproj/5d40a11fd0f001870c840efa - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: TaskID 5d40a11fd0f001870c840efa has been fetched - /get-task/5d40a11fd0f001870c840efa - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: TaskID 5d40a11fd0f001870c840efa has been fetched - /get-task/5d40a11fd0f001870c840efa - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: UserID 5d40a11fd0f001870c840efa has been fetched - /get-userbyproj/5d40a11fd0f001870c840efa - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}
+{"message":"200: All records have been fetched - /get-task/ - GET - 127.0.0.1","level":"info","ts":"2019-07-30T11:24:59.089Z"}

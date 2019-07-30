@@ -33,7 +33,7 @@ describe('UpdtaskComponent', () => {
 
   it('Should return False if all input fields are NOT populated', () => {
     component.task.taskname = '';
-    const objData = component.validationOfForm();
+    const objData = component.validateForm();
     expect(objData).toBeFalsy();
   });
 });

@@ -63,7 +63,7 @@ export class UpdtaskComponent implements OnInit {
 
     this.updtaskService.getsingleuser(this.taskId).subscribe((res: any) => {
       if (res) {
-        this.displayUser = res[0].fname;
+        this.displayUser = res[0].fname + ' ' + res[0].lname;
         this.task.userid = res[0]._id;
         this.task.olduser = res[0]._id;
       }
