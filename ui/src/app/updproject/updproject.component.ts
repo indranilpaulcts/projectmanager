@@ -191,7 +191,7 @@ export class UpdprojectComponent implements OnInit {
   resetValue(): void {
     this.project.project = '';
     this.project.manager = '';
-    this.project.priority = 5;
+    this.project.priority = 0;
     this.project.finished = false;
     this.project.startdt = new Date();
     this.project.enddt = new Date();

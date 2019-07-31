@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { ViewtaskService } from './viewtask.service';
 import { Router } from '@angular/router';
 import { Task, User, Project } from '../app-model';

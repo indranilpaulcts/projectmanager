@@ -1,10 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddtaskService } from './addtask/addtask.service';
 import { ViewtaskService } from './viewtask/viewtask.service';
 import { UpdtaskService } from './updtask/updtask.service';
+import { AdduserService } from './adduser/adduser.service';
+import { UpduserService } from './upduser/upduser.service';
+import { AddprojectService } from './addproject/addproject.service';
+import { UpdprojectService } from './updproject/updproject.service';
 import { HttpClientModule } from '@angular/common/http';
 
 xdescribe('AppComponent', () => {
@@ -13,6 +17,7 @@ xdescribe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpClientModule
       ],
       declarations: [
@@ -21,7 +26,11 @@ xdescribe('AppComponent', () => {
       providers: [
         AddtaskService,
         ViewtaskService,
-        UpdtaskService
+        UpdtaskService,
+        AdduserService,
+        UpduserService,
+        AddprojectService,
+        UpdprojectService
       ]
     }).compileComponents();
   }));
